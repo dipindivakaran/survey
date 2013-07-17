@@ -39,8 +39,20 @@ ActiveRecord::Schema.define(:version => 20130716114420) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "phone"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "crypted_password",                  :null => false
+    t.string   "password_salt",                     :null => false
+    t.string   "persistence_token",                 :null => false
+    t.integer  "failed_login_count", :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token", :unique => true
 
 end

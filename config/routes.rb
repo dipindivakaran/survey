@@ -1,4 +1,8 @@
 QbForum::Application.routes.draw do
+  get "user_session/create"
+
+  get "user_session/destroy"
+
   resources :users
 
 
