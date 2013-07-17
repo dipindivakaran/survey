@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
-  before_filter :require_user
+  before_filter :require_user , :except => [:new,:create]
 
   def index
     @users = User.all
