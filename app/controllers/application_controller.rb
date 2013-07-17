@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   def require_user
     logger.debug "ApplicationController::RequireUser"
     unless current_user
-      store_return_url
+      store_return_uri
       flash[:message] = "You must login to access this page"
       redirect_to new_user_session_url
     return false
@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   def store_return_uri
-    session[:redirect_uri] = request.request_uri
+    session[:redirect_uri] = request.url
   end
 
 end

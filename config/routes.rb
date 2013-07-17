@@ -4,6 +4,7 @@ QbForum::Application.routes.draw do
   get "user_session/destroy"
 
   resources :users
+  resources :user_sessions
 
 
   # The priority is based upon order of creation:
