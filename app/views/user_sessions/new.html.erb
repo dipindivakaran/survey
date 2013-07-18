@@ -1,6 +1,6 @@
 <%= link_to "Register" , new_user_path %>
 
-<%= form_for(@user_session) do |f| %>
+<%= form_for(@user_session,:url => 'create') do |f| %>
   <% if @user_session.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user_session.errors.count, "error") %> prohibited this user from being saved:</h2>

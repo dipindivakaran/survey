@@ -4,7 +4,7 @@ QbForum::Application.routes.draw do
   get "user_session/destroy"
 
   resources :users
-  resources :user_sessions
+  #resources :user_sessions
 
 
   # The priority is based upon order of creation:
@@ -15,7 +15,9 @@ QbForum::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-     match 'user_sessions/destroy' => 'user_sessions#destroy', :as => :logout_url
+     match 'user_sessions/destroy' => 'user_sessions#destroy', :as => :logout
+     match 'user_sessions/new' => 'user_sessions#new', :as => :login
+     match 'user_sessions/create' => 'user_sessions#create'
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
