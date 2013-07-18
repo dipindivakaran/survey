@@ -1,0 +1,17 @@
+<%= link_to "Logout" , logout_url %>
+
+
+
+<% @questions.each do |question|%>
+<div class="post">
+  <%=question.question%>
+  <div class="answer">
+     <%=form_for(@answer,:url=>save_answer_url) do |f|%>
+       <input type="hidden" value="<%=question%>" name="question">
+       <%=f.text_field :answer%>
+       <%=f.submit%>
+     <%end%>
+  </div>
+</div>
+
+<% end %>

@@ -1,10 +1,8 @@
 QbForum::Application.routes.draw do
-  get "user_session/create"
 
-  get "user_session/destroy"
+  get "home/index"
 
   resources :users
-  #resources :user_sessions
 
 
   # The priority is based upon order of creation:
@@ -16,8 +14,13 @@ QbForum::Application.routes.draw do
 
   # Sample of named route:
      match 'user_sessions/destroy' => 'user_sessions#destroy', :as => :logout
-     match 'user_sessions/new' => 'user_sessions#new', :as => :login
-     match 'user_sessions/create' => 'user_sessions#create'
+     match '/login' => 'user_sessions#new', :as => :login
+     match 'user_sessions/create' => 'user_sessions#create', :as => :authenticate
+
+     match '/new_question' => 'home#create', :as => :new_question
+     match '/home' => 'home#index', :as => :home
+     match 'save_answer' => 'home#save_answer', :as => :save_answer
+
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
@@ -58,7 +61,7 @@ QbForum::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'users#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -6,11 +6,10 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    puts "--------------------   CREATING NEW USER SESSION ----------------------"
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:message] = "Login Successful"
-      redirect_back_or_default users_url
+      redirect_back_or_default home_url
     else
       render :action => :new
     end
