@@ -1,26 +1,22 @@
-<%= link_to "Register" , new_user_path %>
 
-<%= form_for(@user_session,:url => authenticate_url) do |f| %>
-  <% if @user_session.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user_session.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-      <% @user_session.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="login">
+	<%= form_for(@user_session,:url => authenticate_url) do |f| %>
+	<div class="page-center">
+		<% if @user_session.errors.any? %>
+		<p class="error">
+			<%= @user_session.errors.full_messages.first %>
+		</p>
+		<% end %>
+		<div class="field">
+			<%= f.text_field :email , :placeholder => "Email"%>
+		</div>
+		<div class="field">
+			<%= f.password_field :password, :placeholder => "Password"%>
+		</div>
+		<div class="submit">
+			<%= f.submit "Login"%>
+		</div>
+	</div>
+	<% end %>
 
-<div class="field">
-   <div class="field">
-    <%= f.label :email%><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-<%= f.submit %>
-<% end %>
+</div>

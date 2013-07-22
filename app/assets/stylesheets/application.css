@@ -11,3 +11,56 @@
  *= require_self
  *= require_tree .
  */
+.page-center {
+	position: absolute;
+	width: 800px;
+	height: 200px;
+	left: 50%;
+	top: 50%;
+	margin-left: -200px;
+	margin-top: -100px;
+}
+
+.field input {
+	height: 40px;
+	margin-top: 5px;
+	width: 350px;
+	text-align: center;
+}
+
+.submit input {
+	height: 55px;
+	width: 150px;
+	text-align: center;
+	margin-left: 100px;
+}
+
+p.error{
+	color: red;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.header{
+	height:50px;
+	width:100%;
+	background: #999999;
+}
+
+.footer{
+	position:absolute;
+    bottom:0;
+    width:99%;
+    height:50px;  
+	background: #999999;
+}
+
+#register{
+	float: right;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FF0000;
+}
+
+#register a{
+	color: #FFFFFF;
+}

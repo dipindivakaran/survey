@@ -15,7 +15,7 @@ QbForum::Application.routes.draw do
   # Sample of named route:
      match 'user_sessions/destroy' => 'user_sessions#destroy', :as => :logout
      match '/login' => 'user_sessions#new', :as => :login
-     match 'user_sessions/create' => 'user_sessions#create', :as => :authenticate
+     match '/authenticate' => 'user_sessions#create', :as => :authenticate
 
      match '/new_question' => 'home#create', :as => :new_question
      match '/home' => 'home#index', :as => :home
